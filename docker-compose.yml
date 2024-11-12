@@ -15,11 +15,11 @@ services:
 
   frontend:
     build:
-      context: ./front
+      context: ./frontend
       dockerfile: Dockerfile
     container_name: frontend
     volumes:
-      - ./front:/app
+      - ./frontend:/app
     ports:
       - "3000:3000"
     environment:
