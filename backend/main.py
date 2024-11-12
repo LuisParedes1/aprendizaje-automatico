@@ -1,13 +1,19 @@
+import logging
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from classify_tweet import classify_tweet
+from routers import predict_tweet
+
 
 app = FastAPI()
+logging.basicConfig(level=logging.INFO)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/classify_tweet")
-def read_root(tweet: str):
-    """
-    Classify tweets using the trained model
-    """
-    return classify_tweet(tweet)
+app.include_router(predict_tweet.router)
