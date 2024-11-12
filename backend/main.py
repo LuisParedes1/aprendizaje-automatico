@@ -1,15 +1,14 @@
-from typing import Union
-
 from fastapi import FastAPI
+
+from classify_tweet import classify_tweet
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/classify_tweet")
+def read_root(tweet: str):
+    """
+    Classify tweets using the trained model
+    """
+    print(f"recibiendo tweet: {tweet}")
+    return classify_tweet(tweet)
