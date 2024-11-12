@@ -35,7 +35,7 @@ Then go to `http://127.0.0.1:8000/docs`
 
 # Running with docker-compose
 
-You can also run the project using docker-compose
+You can also run the project using docker-compose. Fron root folder run:
 
 ```
 docker-compose build
