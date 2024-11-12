@@ -1,4 +1,4 @@
-backend/models/extra_trees_model.pkl
+backend/ML/models/extra_trees_model.pkl
 
 **/.next/
 **/node_modules/
