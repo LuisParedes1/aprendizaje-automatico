@@ -13,6 +13,22 @@ The following project takes the tweets from the [Twitter Emotion Classification 
 
 Simple Next.js project to use as new Tweet input
 
+To run the frontend, inside `/frontend` folder run:
+
+```
+npm run dev
+```
+
+Then go to ``http://localhost:3000/`
+
 # Backend
 
 The backend uses the trained model along with the vectorizer and processes the request
+
+To run the backend, inside `/backend` folder run:
+
+```
+fastapi dev main.py
+```
+
+Then go to `http://127.0.0.1:8000/docs`
