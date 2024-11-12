@@ -2,6 +2,8 @@
 
 The following project takes the tweets from the [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) and trains a classifier model that labels a tweet in one of the following 5 categories
 
+<p style="text-align: center;">
+
 | Index | Emotion  |
 | ----- | -------- |
 | 0     | sadness  |
@@ -10,6 +12,8 @@ The following project takes the tweets from the [Twitter Emotion Classification 
 | 3     | anger    |
 | 4     | fear     |
 | 5     | surprise |
+
+</p>
 
 # Frontend
 
