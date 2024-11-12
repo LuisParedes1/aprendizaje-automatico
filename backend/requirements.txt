@@ -1,1 +1,6 @@
-fastapi[standard]
+nltk==3.9.1
+scikit-learn==1.5.2
+uvicorn==0.30.3
+fastapi==0.111.1
+pandas==2.2.2
+numpy==2.0.2

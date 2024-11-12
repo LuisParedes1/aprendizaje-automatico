@@ -10,5 +10,4 @@ def read_root(tweet: str):
     """
     Classify tweets using the trained model
     """
-    print(f"recibiendo tweet: {tweet}")
     return classify_tweet(tweet)
