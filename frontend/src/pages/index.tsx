@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const BASE_ENDPOINT = "http://localhost:8000";
+const BASE_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
