@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PostCard } from "./components/postCard";
 
 const BASE_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
@@ -21,23 +22,13 @@ export default function Home() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-black">Input Display</h2>
-      <input
-        type="text"
-        placeholder="Type something..."
-        value={inputValue}
-        onChange={handleInputChange}
-        className="w-80 h-15 p-2 bg-white text-black border border-gray-300 placeholder-gray-500 resize-none"
-      />
-      <br />
-      <br />
-
-      <button
-        onClick={handleOnClick}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md"
-      >
-        Click me!
-      </button>
+      <div>
+        <PostCard
+          post={inputValue}
+          handleInputChange={handleInputChange}
+          handleOnClick={handleOnClick}
+        />
+      </div>
 
       {emotion && (
         <div>
