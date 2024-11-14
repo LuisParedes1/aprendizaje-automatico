@@ -16,9 +16,9 @@ export const PostCard = ({
     >
       <h1
         id="emotion_predictor_title"
-        className="text-center text-slate-0 text-xl font-bold col-span-6"
+        className="text-center text-slate-400 text-xl font-bold col-span-6"
       >
-        Emotion Predictor
+        Tweet Emotion Analyzer
       </h1>
       <textarea
         id="tweet_input"

@@ -57,22 +57,27 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <div id="post_container">
-        <PostCard
-          post={inputValue}
-          handleInputChange={handleInputChange}
-          handleOnClick={handleOnClick}
-        />
-      </div>
-
-      {emotion && (
-        <div id="emotion_container" className="text-center  mt-4">
-          <p className="text-black text-xl font-semi-bold">
-            You are feeling: {get_emotion_message(emotion)}
-          </p>
+    <div
+      id="app_container"
+      className="flex items-center justify-center min-h-screen"
+    >
+      <div className="w-full max-w-md mt-10 p-6 bg-white rounded-lg shadow-md">
+        <div id="post_container">
+          <PostCard
+            post={inputValue}
+            handleInputChange={handleInputChange}
+            handleOnClick={handleOnClick}
+          />
         </div>
-      )}
+
+        {emotion && (
+          <div id="emotion_container" className="text-center  mt-4">
+            <p className="text-black text-xl font-semi-bold">
+              You are feeling: {get_emotion_message(emotion)}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
