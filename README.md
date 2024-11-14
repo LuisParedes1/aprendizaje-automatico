@@ -13,9 +13,9 @@ The following project takes the tweets from the [Twitter Emotion Classification 
 
 We evaluated with the following classification [models](./backend/ML/models/)
 
-- Logistic Regression
+- Logistic Regression Classifier
 - Multinomial Naive Bayes Classifier
-- Extra Trees
+- Extra Trees Classifier
 
 # Frontend
 
