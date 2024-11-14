@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export const PostCard = ({
+const PostCard = ({
   post,
   handleInputChange,
   handleOnClick,
@@ -64,3 +64,5 @@ export const PostCard = ({
     </div>
   );
 };
+
+export default PostCard;
