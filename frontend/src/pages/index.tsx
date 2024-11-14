@@ -15,20 +15,50 @@ export default function Home() {
     }
   }, [inputValue]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
 
   const handleOnClick = async () => {
-    console.log("Fetching Emotion");
+    if (!inputValue) {
+      return;
+    }
     const data = await fetch(BASE_ENDPOINT + "/predict?tweet=" + inputValue);
     const response = await data.json();
     setEmotion(response.emotion);
   };
 
+  const get_emotion_message = (emotion: string) => {
+    var emoji = "";
+    switch (emotion) {
+      case "anger":
+        emoji = "😠";
+        break;
+      case "fear":
+        emoji = "😨";
+        break;
+      case "joy":
+        emoji = "😄";
+        break;
+      case "sadness":
+        emoji = "😢";
+        break;
+      case "surprise":
+        emoji = "😲";
+        break;
+      case "love":
+        emoji = "😍";
+        break;
+      default:
+        return "I don't know what you're feeling 🤔";
+    }
+
+    return emotion + emoji;
+  };
+
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <div>
+      <div id="post_container">
         <PostCard
           post={inputValue}
           handleInputChange={handleInputChange}
@@ -37,11 +67,10 @@ export default function Home() {
       </div>
 
       {emotion && (
-        <div>
-          <p className="text-lg font-semibold text-black mt-4">
-            You are feeling:
+        <div id="emotion_container" className="text-center  mt-4">
+          <p className="text-black text-xl font-semi-bold">
+            You are feeling: {get_emotion_message(emotion)}
           </p>
-          <p className="text-2xl mt-2 text-black">{emotion}</p>
         </div>
       )}
     </div>
