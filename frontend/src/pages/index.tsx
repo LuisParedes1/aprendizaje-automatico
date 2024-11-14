@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PostCard } from "./components/postCard";
+import PostCard from "./components/postCard";
 
 const BASE_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
