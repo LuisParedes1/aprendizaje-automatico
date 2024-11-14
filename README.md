@@ -11,6 +11,12 @@ The following project takes the tweets from the [Twitter Emotion Classification 
 | 4     | fear     |
 | 5     | surprise |
 
+We evaluated with the following classification [models](./backend/ML/models/)
+
+- Logistic Regression
+- Multinomial Naive Bayes Classifier
+- Extra Trees
+
 # Frontend
 
 Simple Next.js project to use as new Tweet input
