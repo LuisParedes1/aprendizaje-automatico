@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PostCard } from "./components/postCard";
 
 const BASE_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
+  const [emotion, setEmotion] = useState<null | string>(null);
+
+  useEffect(() => {
+    if (!inputValue) {
+      setEmotion(null);
+    }
+  }, [inputValue]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  const [emotion, setEmotion] = useState<null | string>(null);
   const handleOnClick = async () => {
     console.log("Fetching Emotion");
     const data = await fetch(BASE_ENDPOINT + "/predict?tweet=" + inputValue);
