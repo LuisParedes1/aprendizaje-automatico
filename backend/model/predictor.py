@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 import nltk
 from fastapi import HTTPException
 
-MODEL_NAMES: List[str] = ["logistic_regression_model", "multinomial_nb_model", "extra_trees_model"]
+MODEL_NAMES: List[str] = ["logistic_regression_model", "multinomial_nb_model"] #, "extra_trees_model"]
 
 class TweetEmotionPredictor:
     """

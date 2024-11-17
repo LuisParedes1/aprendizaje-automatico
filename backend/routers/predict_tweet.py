@@ -5,13 +5,11 @@ Place holder router.
 from fastapi import APIRouter
 from model.predictor import TweetEmotionPredictor
 
-
 router = APIRouter(
     tags=["Predict"],
 )
 
 model = TweetEmotionPredictor()
-
 
 @router.get("/predict", summary="Predict Tweet Emotion")
 def predict(tweet: str, model_name: str):
