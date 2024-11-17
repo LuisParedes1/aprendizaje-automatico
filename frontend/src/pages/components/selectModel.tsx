@@ -17,8 +17,8 @@ export default function SelectModel({
           Select a model
         </option>
         {MODELS.map((model, index) => (
-          <option key={index} value={model}>
-            {model}
+          <option key={index} value={model.value}>
+            {model.name}
           </option>
         ))}
       </select>
