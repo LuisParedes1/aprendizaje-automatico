@@ -4,10 +4,19 @@ import { useEffect, useState } from "react";
 import PostCard from "./components/postCard";
 
 const BASE_ENDPOINT = process.env.NEXT_PUBLIC_API_URL;
+const DEFAULT_MODEL: string = "logistic_regression_model";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
-  const [emotion, setEmotion] = useState<null | string>(null);
+  const [emotion, setEmotion] = useState<string | null>(null);
+
+  const [selectedModel, setSelectedModel] = useState<string | null>(
+    DEFAULT_MODEL
+  );
+
+  const handleSelectedModel = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedModel(event.target.value);
+  };
 
   useEffect(() => {
     if (!inputValue) {
@@ -20,12 +29,24 @@ export default function Home() {
   };
 
   const handleOnClick = async () => {
-    if (!inputValue) {
+    if (!inputValue || !selectedModel) {
       return;
     }
-    const data = await fetch(BASE_ENDPOINT + "/predict?tweet=" + inputValue);
-    const response = await data.json();
-    setEmotion(response.emotion);
+
+    const query_params = new URLSearchParams({
+      tweet: inputValue,
+      model_name: selectedModel,
+    }).toString();
+
+    try {
+      const data = await fetch(`${BASE_ENDPOINT}/predict?${query_params}`, {
+        method: "GET",
+      });
+      const response = await data.json();
+      setEmotion(response.emotion);
+    } catch {
+      console.log("Error fetching data");
+    }
   };
 
   const get_emotion_message = (emotion: string) => {
@@ -53,7 +74,7 @@ export default function Home() {
         return "I don't know what you're feeling 🤔";
     }
 
-    return emotion + emoji;
+    return `${emotion} ${emoji}`;
   };
 
   return (
@@ -67,6 +88,7 @@ export default function Home() {
             post={inputValue}
             handleInputChange={handleInputChange}
             handleOnClick={handleOnClick}
+            handleSelectedModel={handleSelectedModel}
           />
         </div>
 

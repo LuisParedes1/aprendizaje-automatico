@@ -1,13 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import SelectModel from "./selectModel";
 
 const PostCard = ({
   post,
   handleInputChange,
   handleOnClick,
+  handleSelectedModel,
 }: {
   post: string;
   handleInputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleOnClick: () => void;
+  handleSelectedModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }) => {
   return (
     <div
@@ -20,6 +22,9 @@ const PostCard = ({
       >
         Tweet Emotion Analyzer
       </h1>
+
+      <SelectModel handleSelectedModel={handleSelectedModel} />
+
       <textarea
         id="tweet_input"
         placeholder="Tweet something..."
