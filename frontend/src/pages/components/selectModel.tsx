@@ -1,11 +1,15 @@
 import React from "react";
-import MODELS from "@/pages/models/models";
 
 export default function SelectModel({
   handleSelectedModel,
 }: {
   handleSelectedModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }) {
+  const MODELS: { value: string; name: string }[] = [
+    { value: "logistic_regression_model", name: "Logistic Regression" },
+    { value: "multinomial_nb_model", name: "Multinomial NB" },
+    // { value: "extra_trees_model", name: "Extra Trees Classifier" },
+  ];
   return (
     <div className="w-full max-w-xs">
       <select
