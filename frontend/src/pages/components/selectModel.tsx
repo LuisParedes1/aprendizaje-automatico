@@ -1,5 +1,5 @@
 import React from "react";
-import { MODELS } from "@/pages/models/models";
+import MODELS from "@/pages/models/models";
 
 export default function SelectModel({
   handleSelectedModel,
